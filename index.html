@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+ <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>todo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    .text{
+       color: white;
+   }
+
+   .green-background {
+       background-color: green;
+   }
+
+   .to-do{
+       width:150px;
+       margin-left: 1100px;
+       margin-top: 0px;
+       margin-bottom: 10px;
+    }
+
+    body{
+        background-color: green;
+    
+}
+   h2{
+       font-family: Lobster, Monospace;
+       font-size: 40px;
+
+   }
+
+   h3{
+       font-family: Lobster, Monospace;
+       font-size: 30px;
+
+       }
+
+    h4{
+       font-family: Lobster, Monospace;
+       font-size: 30px; 
+    }
+       ed=sta.split("-")
+
+
+       </style>
+
+</head>
+
+   <body>
+    <h2 class="text">To-do list</h2>
+    <img  class="to-do" src="http://www.thecreativityexchange.com/wp-content/uploads/2012/06/Final-The-List-PNG.jpg"></img>
+    <div>
+        <input type="text" id="task" placeholder="What do you want to do today">
+        <input type="date" id="stdate">
+        <input type="date" id="endate">
+        <button id="submit">+</button>
+    </div>
+    <h3 class="text">Task</h3>
+    <ul id="list">
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-d-12">
+                <h4 class="text">Yet to start</h4>
+                <ul id="yet">
+                </ul>
+                </div>
+
+                <div class="col-lg-4 col-d-12" >
+                    <h4 class="text">In-progress</h4>
+                    <ul id="progress">
+                    </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-d-12">
+                        <h4 class="text">Complete</h4>
+                        <ul id="complete">
+                        </ul>
+                        </div>
+                    </div> 
+
+    </div>
+
+   <!--  // <script src="js/jquery.js"></script>
+
+    // Bootstrap Core JavaScript
+    // <script src="js/bootstrap.min.js"></script> -->
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+$('document').ready(function(){
+
+    $("#submit").click(function(){
+      localStorage.setItem("count",0)
+      // if($("#stdate").val()!== $("#endate")val()){
+      $("#yet").append("<li >"+$("#task").val()+" "+$("#stdate").val() +" <input type='checkbox' class='yet'></li>");
+     
+     // else{
+     //    alert("Sorry, cannot be done");
+    // }
+    //     return false;
+    // });
+    //     return true;
+        
+        $(document).on('click','.yet',function(){
+        $(this).switchClass("yet","progress");
+        $(this).parent().detach().appendTo('#progress');
+     }); 
+//   })
+});
+});
+
+</script>
